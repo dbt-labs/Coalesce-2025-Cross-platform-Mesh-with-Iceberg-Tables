@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: ecom
-    schema: jaffle_vault_landing
-    database: raw
+    schema: raw
+    database: cross_platform_mesh_iceberg
     description: E-commerce data for the Jaffle Shop
 
     tables:
