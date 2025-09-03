@@ -1,0 +1,13 @@
+version: 2
+models:
+  - name: metricflow_time_spine
+    description: This model generates a continuous sequence of dates over a 10-year
+      period, starting from a base date. It is useful for creating a time spine to support
+      time-based analyses and reporting.
+    time_spine:
+      standard_granularity_column: date_day
+
+    columns:
+      - name: date_day
+        granularity: day
+        description: The specific date in the time spine, used for time-based analysis.
