@@ -1,0 +1,15 @@
+
+models:
+  - name: dim_product_supplies
+    config:
+      access: public 
+  - name: fct_orders
+    config:
+      access: public 
+  - name: fct_order_items
+    config:
+      access: public
+  - name: dim_common_orders
+    config:
+      access: public
+  
