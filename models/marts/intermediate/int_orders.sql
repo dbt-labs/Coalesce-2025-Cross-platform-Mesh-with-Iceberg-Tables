@@ -21,7 +21,7 @@ joined as (
         customers.customer_name,
         locations.location_name,
         locations.tax_rate,
-        locations.location_opened_at
+        locations.opened_date
 
     from 
        orders 

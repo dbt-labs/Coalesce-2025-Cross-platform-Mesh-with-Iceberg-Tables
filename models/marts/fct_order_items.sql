@@ -17,7 +17,7 @@ joined as (
         orders.customer_name,
         orders.location_name,
         orders.tax_rate,
-        orders.location_opened_at
+        orders.opened_date
         
     from orders 
         inner join order_items 
