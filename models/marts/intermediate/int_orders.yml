@@ -1,61 +1,53 @@
 models:
 - name: int_orders
-  description: >
-    This model integrates order data with employee and store information
-    to provide a comprehensive view of each order, including details about the employee
-    handling the order and the store where the order was placed. It is useful for
-    analyzing order performance across different stores and regions.
+  description: This model calculates the net profit for each order by integrating
+    data from orders, customers, locations, and order items. It provides insights
+    into the profitability of each order by considering the total order cost, taxes
+    paid, and supply costs.
   columns:
-    - name: order_id
-      description: A unique identifier for each order.
-
-    - name: customer_id
-      description: The identifier for the customer who placed the order.
-
-    - name: ordered_at
-      description: The timestamp when the order was placed.
-
-    - name: status
-      description: The current status of the order.
-
-    - name: payment_method
-      description: The method used to pay for the order.
-
-    - name: order_subtotal
-      description: The total amount for the order before tax.
-
-    - name: tax
-      description: The tax amount applied to the order.
-
-    - name: order_total
-      description: The total amount for the order including tax.
-
-    - name: employee_id
-      description: The identifier for the employee who handled the order.
-
-    - name: employee
-      description: The full name of the employee who handled the order.
-
-    - name: employee_email
-      description: The email address of the employee who handled the order.
-
-    - name: store_id
-      description: The identifier for the store where the order was placed.
-
-    - name: store_name
-      description: The name of the store where the order was placed.
-
-    - name: store_manager
-      description: The name of the store manager.
-
-    - name: store_manager_email
-      description: The email address of the store manager.
-
-    - name: region
-      description: The region where the store is located.
-
-    - name: regional_manager
-      description: The name of the regional manager.
-      
-    - name: regional_manager_email
-      description: The email address of the regional manager.
+  - name: order_id
+    description: A unique identifier for each order.
+    data_tests:
+      - unique
+      - not_null
+  - name: location_id
+    description: The identifier for the location where the order was placed.
+    data_tests:
+      - not_null
+      - relationships:
+          to: ref('stg_locations')
+          field: location_id
+  - name: customer_id
+    description: The identifier for the customer who placed the order.
+    data_tests:
+      - not_null
+      - relationships:
+          to: ref('stg_customers')
+          field: customer_id
+  - name: order_total
+    description: The total amount charged for the order.
+    data_tests:
+      - not_null
+  - name: tax_paid
+    description: The total tax amount paid for the order.
+    data_tests:
+      - not_null
+  - name: total_order_supply_cost
+    description: The total cost of supplies for the order.
+    data_tests:
+      - not_null
+  - name: net_profit_per_order
+    description: The net profit generated from the order after deducting taxes and
+      supply costs from the order total.
+  - name: ordered_at
+    description: The timestamp when the order was placed.
+    data_tests:
+      - not_null
+  - name: customer_name
+    description: The name of the customer who placed the order.
+  - name: location_name
+    description: The name of the location where the order was placed.
+  - name: tax_rate
+    description: The tax rate applicable at the location where the order was placed.
+  - name: opened_date
+    description: The date when the location was opened.
