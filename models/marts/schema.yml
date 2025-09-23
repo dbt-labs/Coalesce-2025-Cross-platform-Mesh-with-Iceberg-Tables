@@ -1,4 +1,3 @@
-
 models:
   - name: dim_product_supplies
     config:
@@ -43,4 +42,3 @@ models:
   - name: dim_common_orders
     config:
       access: public
-  
