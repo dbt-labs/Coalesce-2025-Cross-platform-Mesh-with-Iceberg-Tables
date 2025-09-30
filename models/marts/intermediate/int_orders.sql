@@ -1,4 +1,13 @@
-with orders as (
+with order_items as (
+    select 
+        order_id,
+        sum(supply_cost) as total_supply_cost
+    from {{ ref('order_items') }}
+    group by 
+        order_id
+),
+
+orders as (
     select * from {{ ref('stg_orders') }}
 ),
 
@@ -21,14 +30,17 @@ joined as (
         customers.customer_name,
         locations.location_name,
         locations.tax_rate,
-        locations.opened_date
-
+        locations.opened_date,
+        order_items.total_supply_cost,
+        orders.order_total - orders.tax_paid - order_items.total_supply_cost as net_profit_per_order
     from 
        orders 
         left join customers 
             on orders.customer_id = customers.customer_id
         left join locations 
-            on orders.location_id = locations.location_id    
+            on orders.location_id = locations.location_id
+        left join order_items
+            on orders.order_id = order_items.order_id    
 )
 
 select * from joined

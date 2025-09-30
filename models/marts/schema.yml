@@ -5,11 +5,71 @@ models:
       access: public 
   - name: fct_orders
     config:
-      access: public 
+      access: public
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: location_id
+        data_type: varchar
+        description: ""
+
+      - name: customer_id
+        data_type: varchar
+        description: ""
+
+      - name: order_total
+        data_type: number
+        description: ""
+
+      - name: tax_paid
+        data_type: number
+        description: ""
+
+      - name: net_profit_per_order
+        data_type: number
+        description: ""
+
+      - name: ordered_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: customer_name
+        data_type: varchar
+        description: ""
+
+      - name: location_name
+        data_type: varchar
+        description: ""
+
+      - name: tax_rate
+        data_type: float
+        description: ""
+
+      - name: opened_date
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: ordered_month
+        data_type: number
+        description: ""
+
+      - name: ordered_day
+        data_type: number
+        description: ""
+
+      - name: ordered_year
+        data_type: number
+        description: ""
   - name: fct_order_items
     config:
       access: public
   - name: dim_common_orders
     config:
       access: public
+  
+
   
