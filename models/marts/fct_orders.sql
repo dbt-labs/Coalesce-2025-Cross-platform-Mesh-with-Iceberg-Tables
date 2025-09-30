@@ -14,6 +14,7 @@ final as (
         location_name,
         tax_rate,
         opened_date,
+        net_profit_per_order,
         date_part(month, ordered_at) as ordered_month,
         date_part(day, ordered_at) as ordered_day, 
         date_part(year, ordered_at) as ordered_year
