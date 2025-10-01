@@ -12,7 +12,6 @@ models:
       - name: order_id
         data_type: varchar
         description: ""
-
       - name: location_id
         data_type: varchar
         description: ""
@@ -45,10 +44,6 @@ models:
         data_type: varchar
         description: ""
 
-      - name: tax_rate
-        data_type: float
-        description: ""
-
       - name: opened_date
         data_type: timestamp_ntz
         description: ""
@@ -64,6 +59,17 @@ models:
       - name: ordered_year
         data_type: number
         description: "" 
+
+      - name: tax_rate
+        data_type: number
+        description: ""
+    versions:
+      - v: 1
+      - v: 2
+        columns:
+          - include: all
+            exclude: [tax_rate]
+
   - name: fct_order_items
     config:
       access: public
