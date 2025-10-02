@@ -7,7 +7,6 @@ models:
       access: public
       contract:
         enforced: true
-    latest_version: 1
     columns:
       - name: order_id
         data_type: varchar
