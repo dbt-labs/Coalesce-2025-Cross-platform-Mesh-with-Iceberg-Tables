@@ -6,5 +6,5 @@ exposures:
     owner:
       email: faith.mckenna@dbtlabs.com
     depends_on:
-      - ref('fct_orders')
+      - ref('fct_orders') 
       - ref('fct_order_items')
