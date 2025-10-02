@@ -1,0 +1,10 @@
+exposures:
+  - name: revenure dashboard
+    type: dashboard
+    url: https://public.tableau.com/app/profile/bigxpt/viz/PACIFICRESILIENCE/story
+    description: Revenue Stuffs
+    owner:
+      email: someone.someone@someone.com
+    depends_on:
+      - ref('fct_orders')
+      - ref('fct_order_items')
