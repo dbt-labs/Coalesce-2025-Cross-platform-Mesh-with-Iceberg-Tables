@@ -20,7 +20,9 @@ clean-targets:
 
 vars:
   "dbt_date:time_zone": "America/Los_Angeles"
-
+on-run-end:
+  - "{{ dbt_artifacts.upload_results(results) }}"
+  
 seeds:
   jaffle_shop:
     +schema: raw

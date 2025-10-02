@@ -1,0 +1,10 @@
+exposures:
+  - name: My Cool Revenue Dashboard
+    type: dashboard
+    url: https://public.tableau.com/app/profile/bigxpt/viz/PACIFICRESILIENCE/story
+    description: revenue dashboardthat faith is responsible for and johnny knows everything about
+    owner:
+      email: owner
+    depends_on:
+      - ref('fct_orders')
+      - ref('fct_order_items')
