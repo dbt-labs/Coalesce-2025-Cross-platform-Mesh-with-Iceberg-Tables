@@ -1,0 +1,30 @@
+{{ dbt_utils.deduplicate(
+    relation=ref('fct_orders'),
+    partition_by='order_id',
+    order_by='order_id'
+) }}
+
+
+select *
+    from CROSS_PLATFORM_MESH_ICEBERG.dbt_MJohnson.fct_orders_v1
+    qualify
+        row_number() over (
+            partition by order_id
+            order by order_id
+        ) = 1
+
+
+with my_cte as (
+    select *
+    from {{ source('my_source', 'my_table') }}
+    where user_id = 1
+),
+deduplicated_cte as (
+  {{ dbt_utils.deduplicate(
+      relation='my_cte',
+      partition_by='user_id, cast(timestamp as date)',
+      order_by='timestamp desc',
+     )
+  }}
+)
+select * from deduplicated_cte

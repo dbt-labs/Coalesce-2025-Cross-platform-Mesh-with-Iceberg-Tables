@@ -1,0 +1,1 @@
+select * from CROSS_PLATFORM_MESH_ICEBERG.dbt_MJohnson.models
