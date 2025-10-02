@@ -33,3 +33,5 @@ models:
       +materialized: view
     marts:
       +materialized: table
+on-run-end:
+  - "{{ dbt_artifacts.upload_results(results) }}"

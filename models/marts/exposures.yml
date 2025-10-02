@@ -1,0 +1,10 @@
+exposures:
+  - name: My Cool Revenue Dashboard
+    type: dashboard
+    url: https://public.tableau.com/app/profile/bigxpt/viz/PACIFICRESILIENCE/story
+    description: Revenue dashboard that Faith is responsible for
+    owner:
+      email: faith.mckenna@dbtlabs.com
+    depends_on:
+      - ref('fct_orders')
+      - ref('fct_order_items')

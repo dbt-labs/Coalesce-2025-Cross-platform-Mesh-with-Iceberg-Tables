@@ -8,6 +8,7 @@ models:
       access: public 
       contract:
         enforced: true
+    latest_version: 1
     columns:
       - name: order_id
         data_type: varchar
@@ -64,6 +65,12 @@ models:
       - name: ordered_year
         data_type: number
         description: ""
+    versions:
+    - v: 1
+    - v: 2
+      columns:
+        - include: '*'
+          exclude: [tax_rate]
   - name: fct_order_items
     config:
       access: public
