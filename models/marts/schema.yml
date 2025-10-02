@@ -8,6 +8,7 @@ models:
       access: public
       contract:
         enforced: true
+    latest_version: 1
     columns:
       - name: order_id
         data_type: varchar
@@ -61,13 +62,13 @@ models:
         description: "" 
 
       - name: tax_rate
-        data_type: number
+        data_type: float
         description: ""
     versions:
       - v: 1
       - v: 2
         columns:
-          - include: all
+          - include: '*'
             exclude: [tax_rate]
 
   - name: fct_order_items
