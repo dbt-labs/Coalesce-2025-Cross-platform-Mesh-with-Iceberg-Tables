@@ -7,6 +7,7 @@ models:
       access: public
       contract:
         enforced: true
+    latest_version: 1
     columns:
       - name: order_id
         data_type: varchar
@@ -44,10 +45,6 @@ models:
         data_type: varchar
         description: ""
 
-      - name: tax_rate
-        data_type: float
-        description: ""
-
       - name: opened_date
         data_type: timestamp_ntz
         description: ""
@@ -63,3 +60,20 @@ models:
       - name: ordered_year
         data_type: number
         description: ""
+
+      - name: tax_rate
+        data_type: float
+        description: ""
+    versions:
+      - v: 1
+      - v: 2
+        columns:
+          - include: '*'
+            exclude: [tax_rate]
+
+  - name: fct_order_items
+    config:
+      access: public
+  - name: dim_common_orders
+    config:
+      access: public
