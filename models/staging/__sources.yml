@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: ecom
     schema: raw
-    database: cross_platform_mesh_iceberg
+    database: coalesce_cross_platform_mesh_iceberg
     description: E-commerce data for the Jaffle Shop
 
     tables:
