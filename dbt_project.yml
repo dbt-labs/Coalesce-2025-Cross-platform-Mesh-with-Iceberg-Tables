@@ -33,3 +33,4 @@ models:
       +materialized: table
 flags:
   require_generic_test_arguments_property: true
+  flags.use_materialization_v2: true
