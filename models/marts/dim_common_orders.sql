@@ -1,5 +1,6 @@
 select
-    * exclude(ordered_at),
-    ordered_at::timestamp_ntz(6) as ordered_at
+
+    * except(ordered_at),
+    cast(ordered_at as timestamp_ntz) AS ordered_at
 
 from {{ ref('orders') }}
