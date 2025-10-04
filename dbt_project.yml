@@ -1,10 +1,7 @@
 config-version: 2
 
-name: "jaffle_shop"
+name: 'xplat_foundation'
 version: "3.0.0"
-
-dbt-cloud:
-  project-id: 441933 # Put your project id here
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -20,16 +17,19 @@ vars:
   "dbt_date:time_zone": "America/Los_Angeles"
 
 seeds:
-  jaffle_shop:
+  xplat_foundation:
     +schema: raw
     jaffle-data:
       +enabled: "{{ var('load_source_data', false) }}"
 
 models:
-  jaffle_shop:
-    staging:
-      +materialized: view
-    marts:
-      +materialized: table
+  xplat_foundation:
+    +materialized: table
+    +access: public
+    +file_format: iceberg
+    +catalog: coalesce_cross_platform_mesh_iceberg
+
+
 flags:
   require_generic_test_arguments_property: true
+  use_materialization_v2: true
