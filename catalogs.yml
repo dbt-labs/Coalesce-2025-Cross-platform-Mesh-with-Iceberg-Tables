@@ -1,10 +1,9 @@
 catalogs:
-  - name: iceberg_rest_catalog
+  - name: coalesce_cross_platform_mesh_iceberg
     active_write_integration: databricks_rest_catalog
     write_integrations: 
       - name: databricks_rest_catalog
         table_format: iceberg
         catalog_type: unity
         adapter_properties:
-          catalog_linked_database: coalesce_cross_platform_mesh_iceberg
           file_format: iceberg
