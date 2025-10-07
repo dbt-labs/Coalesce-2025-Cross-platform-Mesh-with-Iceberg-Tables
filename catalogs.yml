@@ -7,4 +7,4 @@ catalogs:
         catalog_type: unity
         adapter_properties:
           catalog_linked_database: coalesce_cross_platform_mesh_iceberg
-          file_format: parquet
+          file_format: iceberg
