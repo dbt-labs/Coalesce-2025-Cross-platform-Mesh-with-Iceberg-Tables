@@ -24,10 +24,11 @@ seeds:
 
 models:
   xplat_foundation:
-    +materialized: table
-    +access: public
-    +file_format: iceberg
-    +catalog: coalesce_cross_platform_mesh_iceberg
+    marts:
+      +materialized: table
+      +access: public
+      +file_format: iceberg
+      +catalog: coalesce_cross_platform_mesh_iceberg
 
 quoting:
   database: false
