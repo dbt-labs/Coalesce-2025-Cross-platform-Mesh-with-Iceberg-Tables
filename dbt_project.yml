@@ -22,8 +22,6 @@ seeds:
     jaffle-data:
       +enabled: "{{ var('load_source_data', false) }}"
 
-<<<<<<< HEAD
-=======
 models:
   xplat_foundation:
     marts:
@@ -31,13 +29,7 @@ models:
       +access: public
       +file_format: iceberg
       +catalog: coalesce_cross_platform_mesh_iceberg
-
-quoting:
-  database: false
-  schema: true
-  identifier: true
-
->>>>>>> ac0c2614b01c88efa0580b45afcfe1a4173f0447
+  
 flags:
   require_generic_test_arguments_property: true
   use_materialization_v2: true
