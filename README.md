@@ -2,7 +2,7 @@
 
 ### Getting Started
 1. If you already have a dbt account, log out first.
-2. Sign up for a new account: https://cloud.getdbt.com/coalesce-workshop-signup
+2. Sign up for a new account: https://workshops.us1.dbt.com/workshop
 3. Fill out the form, choosing `Cross-Platform Mesh with Iceberg Tables`.
    The password will be available in person at the 2025 Coalesce workshop!
 4. Submitting the form will launch dbt. Launch dbt Studio. 
