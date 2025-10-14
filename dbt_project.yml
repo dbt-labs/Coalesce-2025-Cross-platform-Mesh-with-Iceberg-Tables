@@ -16,6 +16,20 @@ clean-targets:
 vars:
   "dbt_date:time_zone": "America/Los_Angeles"
 
+models:
+  xplat_foundation:
+    mart:
+      +materialized: table
+      +access: public
+      +file_format: iceberg
+      +catalog: coalesce_cross_platform_mesh_iceberg
+    intermediate:
+      +materialized: table
+      +file_format: delta
+    standard_tables:
+      +materialized: table
+      +file_format: delta         
+
 seeds:
   xplat_foundation:
     +schema: raw
