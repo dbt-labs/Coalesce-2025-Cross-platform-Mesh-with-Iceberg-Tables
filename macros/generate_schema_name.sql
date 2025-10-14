@@ -1,22 +1,21 @@
 {% macro generate_schema_name(custom_schema_name, node) %}
+    {# define base default schema, remove underscores and append 'dbx' #}
+    {% set default_schema = (target.schema | replace('_', '') ~ 'dbx') | lower %}
 
-    {% set default_schema = target.schema | replace('_', '') ~ 'dbx' %}
-
-    {# seeds go in a global raw schema (underscores removed) #}
+    {# seeds go in a global raw schema (underscores removed, lowercase) #}
     {% if node.resource_type == 'seed' %}
-        {{ custom_schema_name | trim | replace('_', '') }}
+        {{ (custom_schema_name | trim | replace('_', '') | lower) }}
 
-    {# non-specified schemas go to the default target schema #}
+    {# non-specified schemas go to the default schema (lowercased) #}
     {% elif custom_schema_name is none %}
         {{ default_schema }}
 
-    {# specified custom schema names go to the schema name prepended with the default schema name in prod #}
+    {# in prod, combine default and custom schema (remove underscores, lowercase) #}
     {% elif target.name == 'prod' %}
-        {{ (default_schema ~ custom_schema_name | trim) | replace('_', '') }}
+        {{ ((default_schema ~ (custom_schema_name | trim | replace('_', ''))) | lower) }}
 
-    {# specified custom schemas go to the default target schema for non-prod targets #}
+    {# for non-prod, use default schema only (lowercased) #}
     {% else %}
         {{ default_schema }}
     {% endif %}
-
 {% endmacro %}
