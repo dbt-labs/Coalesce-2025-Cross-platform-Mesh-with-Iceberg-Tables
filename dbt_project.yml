@@ -28,7 +28,7 @@ models:
       +materialized: table
       +access: public
       +file_format: iceberg
-      +catalog: coalesce_cross_platform_mesh_icerberg
+      +catalog: coalesce_cross_platform_mesh_iceberg
       intermediate:
         +materialized: table
         +file_format: delta
