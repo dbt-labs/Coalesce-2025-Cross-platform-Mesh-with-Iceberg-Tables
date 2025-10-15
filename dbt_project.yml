@@ -26,6 +26,9 @@ models:
   xplat_foundation:
     marts:
       +materialized: table
+      +access: public
+      +file_format: iceberg
+      +catalog: coalesce_cross_platform_mesh_iceberg
 
 flags:
   require_generic_test_arguments_property: true
