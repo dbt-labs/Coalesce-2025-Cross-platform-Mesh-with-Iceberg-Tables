@@ -25,7 +25,7 @@ seeds:
 models:
   xplat_foundation:
     marts:
-      +materialized: mesh
+      +materialized: table
       +access: public
       +file_format: iceberg
       +catalog: coalesce_cross_platform_mesh_iceberg
