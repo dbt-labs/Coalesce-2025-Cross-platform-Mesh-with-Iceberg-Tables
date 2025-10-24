@@ -24,17 +24,12 @@ seeds:
 
 models:
   xplat_foundation:
+    +materialized: table
     marts:
       +materialized: table
       +access: public
       +file_format: iceberg
       +catalog: coalesce_cross_platform_mesh_iceberg
-      intermediate: 
-        +materialized: table
-        +file_format: delta
-      standard_tables: 
-        +materialized: table
-        +file_format: delta
 
 quoting:
   database: false
