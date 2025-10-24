@@ -29,10 +29,10 @@ models:
     +file_format: iceberg
     +catalog: coalesce_cross_platform_mesh_iceberg
 
-quoting:
-  database: false
-  schema: true
-  identifier: true
+# quoting:
+#   database: false
+#   schema: true
+#   identifier: true
 
 flags:
   require_generic_test_arguments_property: true
